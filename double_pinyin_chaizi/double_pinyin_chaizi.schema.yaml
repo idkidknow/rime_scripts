@@ -1,0 +1,63 @@
+# Rime schema
+# encoding: utf-8
+# 拆字
+
+schema:
+  schema_id: double_pinyin_chaizi
+  name: 自然码双拼拆字
+  version: "0.1"
+  author:
+    - idkana
+  description: |
+    自然码双拼拆字
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - abbrev/^([a-z]).+$/$1/
+
+translator:
+  dictionary: double_pinyin_chaizi
+  spelling_hints: 4
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
