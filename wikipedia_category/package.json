@@ -1,0 +1,17 @@
+{
+  "name": "wikipedia_category_to_rime_dict",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "https-proxy-agent": "^7.0.0",
+    "node-fetch": "^3.3.1"
+  }
+}
